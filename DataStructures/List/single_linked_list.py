@@ -8,4 +8,7 @@ def add_last(lst,elem):
         lst["first"]=nodo
     return lst    
     
-    
+ 
+def size(lst):
+    return lst["size"]
+   f 
