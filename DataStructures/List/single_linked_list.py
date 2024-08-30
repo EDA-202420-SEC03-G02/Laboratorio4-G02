@@ -7,5 +7,9 @@ def add_last(lst,elem):
     if lst["size"]==1:
         lst["first"]=nodo
     return lst    
-    
-    
+
+def first_element(lst):
+    if not lst:
+        return lst[0]
+
+    return None
