@@ -136,6 +136,10 @@ def count_books_by_tag(catalog, tag):
     Retorna el conteo de libros que tienen asociado el tag solicitado.
     """
     # TODO Implementar la función de conteo de libros por tag
+    for i in catalog["book_tags"]
+     if i == tag:
+        librotag += 1
+    return librotag
 
 # Funciones para agregar informacion al catalogo
 
