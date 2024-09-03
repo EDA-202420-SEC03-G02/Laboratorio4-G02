@@ -233,7 +233,7 @@ def book_tag_size(catalog):
     return lt.size(catalog["book_tags"])
 
 
-# Funciones utilizadas para comparar elementos dentro de una lista
+# Funciones utilizadas para comparar elementos dentro de una listas
 
 def compare_authors(author_name1, author):
     if author_name1.lower() == author['name'].lower():
