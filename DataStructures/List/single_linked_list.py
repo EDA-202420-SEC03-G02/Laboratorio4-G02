@@ -13,7 +13,7 @@ def add_last(lst,elem):
         lst["size"]+=1
     return lst
  
- def add_first(lst, elem):  
+def add_first(lst, elem):  
     nodo= node.new_single_node(elem)
      if lst["size"]==0:
         lst["first"]=nodo
@@ -23,15 +23,7 @@ def add_last(lst,elem):
         lst["first"]=nodo
         lst["size"]+=1
      return lst
-    nodo_nuevo= node.new_single_node(elem)
-    if lst["size"] == 0:
-        lst["first"] = nodo_nuevo 
-    else:
-        lst["last"]["next"] = nodo_nuevo
-    lst["last"] = nodo_nuevo
-    lst["size"] += 1
-    
-    return lst   
+      
 def size(lst):
     return lst["size"]
 
@@ -51,21 +43,8 @@ def remove_first(lst):
             
     else:
         return None        
-def is_present(lst,elem, cmp_function):
-
-    size=lst["size"]
-    if size>0:
-        existe
-
-   
-   
-    return lst    
-
-def first_element(lst):
-    if not lst.head:  
-        return None
-    
-    return lst.head.data 
+  
+ 
 
 def is_empty(lst):
     return lst.head is None
@@ -138,4 +117,21 @@ def delete_element(lst, pos):
     data = actual.next.data  
     actual.next = actual.next.next  
     return data
-d
+
+def is_present(lst,elem, cmp_function):
+
+    size=lst["size"]
+    if size>0:
+        existe
+
+   
+   
+    return lst 
+def insert_element(lst, elem, pos) 
+def change_info(lst, pos, new_info):
+          
+                
+def exchange(lst, pos1, pos2):   
+  
+  
+def sub_list(lst,pos,numelem):

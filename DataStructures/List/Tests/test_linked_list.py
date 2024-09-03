@@ -75,7 +75,7 @@ def test_get_first_element():
     lt.add_first(lista, 1)
     lt.add_first(lista, 2)
     lt.add_first(lista, 3)
-    assert lt.first_element(lista) == 3
+    assert lt.get_first_element(lista) == 3
 
 
 @pytest.mark.skip(reason="No implementado aun")
