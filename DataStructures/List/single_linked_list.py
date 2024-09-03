@@ -10,12 +10,13 @@ def add_last(lst,elem):
         lst["size"]+=1
     return lst
  
- def add_first(lst, elem):   
+ def add_first(lst, elem):  
+    nodo= node.new_single_node(elem)
      if lst["size"]==0:
         lst["first"]=nodo
         lst["size"]+=1
      else:
-        lst["first"]["next"]=nodo
+        lst["next"]["first"]=nodo
         lst["first"]=nodo
         lst["size"]+=1
      return lst
