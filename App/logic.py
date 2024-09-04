@@ -46,10 +46,10 @@ def new_logic():
                'tags': None,
                'book_tags': None}
     
-    catalog['books'] = # TODO Implementar la inicialización de la lista de libros
+    catalog['books'] = lt.new_list()# TODO Implementar la inicialización de la lista de libros
     catalog['authors']= lt.new_list()
-    catalog['tags']=  #TODO Implementar la inicialización de la lista de tags
-    catalog['book_tags'] = # TODO Implementar la inicialización de la lista de asociación de libros y tags
+    catalog['tags']= lt.new_list() #TODO Implementar la inicialización de la lista de tags
+    catalog['book_tags'] = lt.new_list()# TODO Implementar la inicialización de la lista de asociación de libros y tags
     return catalog
 
 
@@ -101,11 +101,25 @@ def load_books_tags(catalog):
 
 # Funciones de consulta sobre el catálogo
 
-def get_best_avg_rating(catalog):
-    """
-    Retorna el libro con el mayor rating promedio (avg_rating) de los datos
-    """
-    # TODO Implementar la función para obtener el libro con el mayor avg_rating
+def get_best_books(catalog, number):
+    best_books = []
+    
+    for book in catalog:
+        if isinstance(book, dict) and 'average_rating' in book:
+            
+            for i, best_book in enumerate(best_books):
+                if book['average_rating'] > best_book['average_rating']:
+                    best_books.insert(i, book)
+                    break
+            else:
+                best_books.append(book)
+            
+           
+            if len(best_books) > number:
+                best_books.pop()
+    
+    return best_books
+
 
 def get_books_by_author(catalog, author_name):
     """
@@ -127,8 +141,25 @@ def get_book_info_by_book_id(catalog, book_id):
         return book
     return None
 
-def get_first_last_books(catalog, top):
-    # TODO Implementar la función que retorne dos listas con los n primeros y ultimos libros cargados
+def get_first_last_books(catalog, n):
+    first_elems = []
+    last_elems = []
+    actual = catalog
+    total_books = 0
+    
+    
+    while actual:
+        if total_books < n:
+            first_elems.append(actual.data)
+        
+       
+        if len(last_elems) >= n:
+            last_elems.pop(0)  
+        last_elems.append(current.data)
+        
+        total_books += 1
+        actual = actual.next
+    
     return first_elems, last_elems
 
 def count_books_by_tag(catalog, tag):
@@ -224,17 +255,17 @@ def new_book_tag(tag_id, book_id, count):
 
 
 def book_size(catalog):
-    return lt.size(catalog['books'])
+    return len(catalog['books'])
 
 
 def author_size(catalog):
-    return lt.size(catalog["authors"])
+    return len(catalog["authors"])
 
 def tag_size(catalog):
-    return lt.size(catalog["tags"])
+    return len(catalog["tags"])
 
 def book_tag_size(catalog):
-    return lt.size(catalog["book_tags"])
+    return len(catalog["book_tags"])
 
 
 # Funciones utilizadas para comparar elementos dentro de una listas
@@ -257,7 +288,7 @@ def compare_tag_names(name, tag):
 def compare_book_ids(id, book):
 # TODO Implementar la función de comparación por book id
 
-
+    return _(float(id["books_id"])>float(book["books_id"]))
 # funciones para comparar elementos dentro de algoritmos de ordenamientos
 
 def compare_ratings(book1, book2):
